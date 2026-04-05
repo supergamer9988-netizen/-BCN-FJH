@@ -1,0 +1,801 @@
+/* Root Variables & Reset */
+:root {
+    --primary: #5271FF;
+    --secondary: #9747FF;
+    --accent: #00D1FF;
+    --bg: #0A0A0A;
+    --text: #FFFFFF;
+    --glass: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background Overlay - Visual Excellence */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(82, 113, 255, 0.1), transparent),
+                radial-gradient(circle at 10% 20%, rgba(151, 71, 255, 0.1), transparent);
+    z-index: -1;
+    background-size: 200% 200%;
+    animation: gradient-flow 15s infinite alternate;
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header & Hero */
+.hero {
+    text-align: center;
+    margin-bottom: 80px;
+    padding-top: 40px;
+}
+
+.glitch-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    background: linear-gradient(90deg, #FFFFFF, #9747FF, #00D1FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-top: 10px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* Glass Cards */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(0, 209, 255, 0.2);
+}
+
+/* Grid Layout */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.features-grid .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.features-grid h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.stat-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.stat-bar .fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* Visuals Section */
+.visuals {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 900px) {
+    .visuals { grid-template-columns: 1fr; }
+}
+
+.visual-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.visual-card th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid var(--glass-border);
+    opacity: 0.7;
+}
+
+.visual-card td {
+    padding: 15px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.highlight {
+    color: var(--accent);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 209, 255, 0.5);
+}
+
+/* Interactive Component: Ballistic Speed */
+.electron-track {
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 30px;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+.electron {
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary:active { transform: scale(0.95); }
+
+/* Formula Section */
+.formula .step-list {
+    margin-top: 30px;
+    display: grid;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+}
+
+.step-num {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    opacity: 0.5;
+}
+
+/* Chaos Key Jitter Visualization */
+/* Conclusion & Closing UI */
+#conclusion-module {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.success-badge {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #FFD700;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--accent);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 0 20px var(--accent);
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.closing {
+    margin-top: 40px;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+/* Butterfly Logic UI */
+.butterfly-canvas-container canvas {
+    width: 100%;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.crossover-marker {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    color: #ccc;
+}
+
+.nvm-status {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid #FFD700;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Physics Mechanisms & Loop Legend UI */
+.mechanisms-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.mech-card {
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.mech-card span {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.loop-legend {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+}
+
+.leg-item {
+    margin-bottom: 4px;
+}
+
+/* Memristor & Hysteresis UI */
+.hysteresis-view canvas {
+    width: 100%;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.loop-status {
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.logic-proof {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    text-align: center;
+}
+
+#xor-pred {
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+/* Optical Kernel UI */
+.pulse-container {
+    height: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.pulse {
+    position: absolute;
+    height: 100%;
+    width: 30px;
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: black;
+    font-weight: bold;
+}
+
+.pulse-a { left: 0; animation: moveRight 1s infinite linear; }
+.pulse-b { right: 0; animation: moveLeft 1s infinite linear; }
+
+@keyframes moveRight { 0% { left: 10%; } 50% { left: 45%; } 100% { left: 10%; } }
+@keyframes moveLeft { 0% { right: 10%; } 50% { right: 45%; } 100% { right: 10%; } }
+
+.impact-zone {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 20px white;
+}
+
+.stat { display: flex; justify-content: space-between; font-size: 0.8rem; margin: 5px 0; }
+.highlight-god { color: #FFD700 !important; text-shadow: 0 0 10px #FFD700; border: 1px solid #FFD700; padding: 5px; border-radius: 4px; }
+
+.l-asm-ops { display: flex; justify-content: space-around; margin-top: 10px; }
+.l-asm-ops code { font-size: 0.7rem; color: #888; }
+
+/* Hybrid HDC-RNC Engine UI */
+.hdc-view canvas {
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.xor-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.xor-in {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.xor-res {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+#ortho-score {
+    color: #00ff00;
+}
+
+/* The Genesis Missions UI */
+.mission-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.mission-card h4 {
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+.key-output {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #00ff00;
+}
+
+.spike-visual {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.spike-visual::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    transition: width 0.1s ease;
+}
+
+/* Vital Signs QC UI */
+.qc-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.qc-item {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.seal-type {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+#qc-status {
+    color: var(--accent);
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Multi-Modal Sensing UI */
+.spectrum-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.spectrum-bar {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    border-left: 4px solid #555;
+    transition: all 0.3s ease;
+}
+
+#s-laser.hit {
+    background: rgba(0, 209, 255, 0.2);
+    border-left-color: var(--accent);
+    color: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.gate-status {
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+#gate-label.graphene {
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent);
+}
+
+/* Reservoir Training UI */
+.pattern-grid {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.pattern-box {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.active-pattern {
+    background: var(--accent) !important;
+    color: black !important;
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.learning-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+/* Chaos Key Jitter Visualization & Metrics */
+.metrics {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.progress-bar {
+    width: 60%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#entropy-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    transition: width 0.5s ease;
+}
+
+#jitter-val {
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+}
+
+.jitter-visual {
+    margin-top: 20px;
+    height: 150px;
+    position: relative;
+    padding: 0 !important;
+}
+
+#jitter-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.crypto-key {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    border: 1px solid var(--glass-border);
+    margin-top: 5px;
+    text-shadow: 0 0 10px var(--accent);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Prism OS Canvas Simulator */
+.canvas-container {
+    width: 100%;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    position: relative;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#os-status {
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    color: var(--accent);
+}
+
+/* Hybrid Switching Logic */
+.hybrid-state-container {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px dashed var(--glass-border);
+}
+
+.material-state {
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 2px;
+}
+
+.diamene {
+    background: #444;
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+}
+
+.on-graphene {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 30px var(--accent);
+    transform: scale(1.1);
+}
+
+/* RNS Visuals */
+.rns-visual {
+    margin-top: 40px;
+}
+
+.modulo-lanes {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.lane {
+    flex: 1;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.lane::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.4), transparent);
+    animation: flow 2s infinite linear;
+}
+
+.lane:nth-child(2)::after { animation-delay: 0.3s; }
+.lane:nth-child(3)::after { animation-delay: 0.6s; }
+
+@keyframes flow {
+    to { left: 100%; }
+}
+
+/* Methodology Scroller */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.method-scroller {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.method-card {
+    min-width: 300px;
+    flex: 1;
+}
+
+.layer-view {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.layer {
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hbn { background: rgba(151, 71, 255, 0.3); border: 1px solid var(--secondary); }
+.graphene { background: rgba(0, 209, 255, 0.3); border: 2px solid var(--accent); box-shadow: 0 0 15px var(--accent); }
+
+/* Custom Scrollbar */
+.method-scroller::-webkit-scrollbar { height: 6px; }
+.method-scroller::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+footer {
+    text-align: center;
+    padding: 40px;
+    opacity: 0.4;
+    font-size: 0.9rem;
+}
